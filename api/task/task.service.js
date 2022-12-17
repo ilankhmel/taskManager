@@ -15,6 +15,8 @@ async function query(filterBy={txt:''}) {
         if(!filterBy.txt) criteria = {}
 
         const collection = await dbService.getCollection('task')
+        var tasksTest = await collection.find({}).toArray()
+        if(!tasksTest.length) await collection.insertMany(demoData)
         collection.createIndex( { title: "text" } )
         var tasks = await collection.find(criteria).toArray()
         return tasks
@@ -145,3 +147,126 @@ module.exports = {
     performTask,
     getNextTask
 }
+
+
+var demoData = [{
+    "title" : "Run Computer",
+    "createdAt" : 1671289323172.0,
+    "description" : "",
+    "doneAt" : 1671289343232.0,
+    "errors" : [
+
+    ],
+    "lastTriedAt" : 1671289343232.0,
+    "status" : "Done",
+    "triesCount" : 1,
+    "importance" : 3,
+    "owner" : {
+        "_id" : "",
+        "fullname" : "Guest"
+    }
+},
+{
+    "title" : "Restart System",
+    "createdAt" : 1671289378797.0,
+    "description" : "",
+    "doneAt" : 1671289387649.0,
+    "errors" : [
+        "High Temparture"
+    ],
+    "lastTriedAt" : 1671289387649.0,
+    "status" : "Done",
+    "triesCount" : 2,
+    "importance" : 4,
+    "owner" : {
+        "_id" : "",
+        "fullname" : "Guest"
+    }
+},
+{
+    "title" : "Fix Computer",
+    "createdAt" : 1671289854041.0,
+    "description" : "",
+    "doneAt" : "",
+    "errors" : [
+
+    ],
+    "lastTriedAt" : "",
+    "status" : "New",
+    "triesCount" : 0,
+    "importance" : 3,
+    "owner" : {
+        "_id" : "",
+        "fullname" : "Guest"
+    }
+},
+{
+    "title" : "Add Database",
+    "createdAt" : 1671289861640.0,
+    "description" : "",
+    "doneAt" : "",
+    "errors" : [
+
+    ],
+    "lastTriedAt" : "",
+    "status" : "New",
+    "triesCount" : 0,
+    "importance" : 4,
+    "owner" : {
+        "_id" : "",
+        "fullname" : "Guest"
+    }
+},
+{
+    "title" : "Change Cables",
+    "createdAt" : 1671289868358.0,
+    "description" : "",
+    "doneAt" : "",
+    "errors" : [
+
+    ],
+    "lastTriedAt" : "",
+    "status" : "New",
+    "triesCount" : 0,
+    "importance" : 2,
+    "owner" : {
+        "_id" : "",
+        "fullname" : "Guest"
+    }
+},
+{
+    "_id" : ObjectId("639ddc169779a300425bb34f"),
+    "title" : "Run Tests",
+    "createdAt" : 1671289876701.0,
+    "description" : "",
+    "doneAt" : "",
+    "errors" : [
+
+    ],
+    "lastTriedAt" : "",
+    "status" : "New",
+    "triesCount" : 0,
+    "importance" : 2,
+    "owner" : {
+        "_id" : "",
+        "fullname" : "Guest"
+    }
+},
+{
+    "title" : "Share Results",
+    "createdAt" : 1671289886350.0,
+    "description" : "",
+    "doneAt" : "",
+    "errors" : [
+
+    ],
+    "lastTriedAt" : "",
+    "status" : "New",
+    "triesCount" : 0,
+    "importance" : 1,
+    "owner" : {
+        "_id" : "",
+        "fullname" : "Guest"
+    }
+}
+]
