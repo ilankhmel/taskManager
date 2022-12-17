@@ -142,7 +142,7 @@ async function runWorker() {
           console.log(`Failed Task`, err)
           } finally {
           emitTo({type: "taskRan", data: task})
-          delay = 200
+          delay = 1
           }
       } else {
       console.log('Snoozing... no tasks to perform')
