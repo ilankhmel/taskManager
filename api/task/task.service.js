@@ -11,9 +11,7 @@ async function query(filterBy = { txt: '' }) {
             $text: { $search: filterBy.txt }
             // title: { $regex: filterBy.txt, $options: 'i' }
         }
-        console.log('CRITERIA:', criteria)
         if (!filterBy.txt) criteria = {}
-        console.log('Success');
         const collection = await dbService.getCollection('task')
         var tasksTest = await collection.find({}).toArray()
         if (!tasksTest.length) await collection.insertMany(demoData)
