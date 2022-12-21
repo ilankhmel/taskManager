@@ -30,7 +30,7 @@ async function getById(taskId) {
         const task = collection.findOne({ _id: ObjectId(taskId) })
         return task
     } catch (err) {
-        logger.error(`while finding task ${taskId}`, err)
+        logger.error(`while finding task/ ${taskId}`, err)
         throw err
     }
 }
