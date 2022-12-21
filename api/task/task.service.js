@@ -13,7 +13,7 @@ async function query(filterBy = { txt: '' }) {
         }
         console.log('CRITERIA:', criteria)
         if (!filterBy.txt) criteria = {}
-
+        console.log('Sucess');
         const collection = await dbService.getCollection('task')
         var tasksTest = await collection.find({}).toArray()
         if (!tasksTest.length) await collection.insertMany(demoData)
