@@ -1,6 +1,6 @@
 Task Manager - Fullstack App using Vue and MongoDB. App link on 'Render' - https://task-mgr.onrender.com/#/
 
-task management app, that allows the user to add new tasks, label tasks by Importance, and filter / sort tasks.
+task management app, that allows the user to add new tasks, edit, remove, label by Importance, and filter / sort tasks.
 
 The app uses a 'Worker', the worker runs in the background and tries to complete the tasks.
 
